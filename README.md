@@ -10,7 +10,7 @@
 Android client for the **Drive cloud storage system**.
 Provides mobile access to file management, authentication, and user accounts via the Drive backend API.
 
-[Repositories with a web client and server](https://github.com/ZZakharC/drive)
+[Repository with a web client and server](https://github.com/ZZakharC/drive)
 
 ---
 
