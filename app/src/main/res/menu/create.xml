@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/upload_file"
+        android:title="@string/upload_file" />
+    <item
+        android:id="@+id/create_folder"
+        android:title="@string/create_folder" />
+</menu>

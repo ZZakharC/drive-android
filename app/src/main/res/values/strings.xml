@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">Drive</string>
+
+    <!-- Login/Register -->
+    <string name="login_title">Вход на сервер</string>
+    <string name="register_title">Регистрация на сервере</string>
+    <string name="login">Логин</string>
+    <string name="password">Пароль</string>
+    <string name="repeat_password">Повторите пароль</string>
+    <string name="login_btn">Войти</string>
+    <string name="register_btn">Зарегистрироваться</string>
+    <string name="account_btn">Есть Аккаунт? Войти</string>
+    <string name="no_account_btn">Нет Аккаунта? Зарегистрироваться</string>
+
+    <!-- Error -->
+    <string name="error_login_len">Длина логина должна быть больше %d</string>
+    <string name="error_password_len">Длина пароля должна быть больше %d</string>
+    <string name="error_login_incorrect">Некорректный логин</string>
+    <string name="error_password_incorrect">Некорректный пароль</string>
+    <string name="error_login_or_password_incorrect">Неверный логин или пароль</string>
+    <string name="error_password_match">Пароли не совпадают</string>
+    <string name="error_user_exists">Пользователь уже существует</string>
+    <string name="error_many_request">Слишком много попыток, попробуйте позже</string>
+    <string name="error_network">Ошибка сети</string>
+    <string name="error_unknown">Неизвестная ошибка</string>
+
+    <!-- Drive -->
+    <string name="admin_panel">Админ панель</string>
+    <string name="you_rules">Вашы права</string>
+    <string name="exit_account_title">Выйти из аккаунта</string>
+    <string name="exit_account">Хотите выйти из аккаунта %s?</string>
+    <string name="create_folder">Создать папку</string>
+    <string name="create_folder_title">Создание папки</string>
+    <string name="folder_name">Название папки</string>
+    <string name="upload_file">Загрузить файл</string>
+    <string name="uploaded">Загружен: %s</string>
+    <string name="no_rules">У вас недостаточно прав</string>
+    <string name="file_delete_title">Удаление файла</string>
+    <string name="file_delete">Удалить файл %s?</string>
+    <string name="file_been_delete">Файл %s удалён</string>
+    <string name="download_done">Скачивание завершено</string>
+    <string name="download_error">Ошибка скачивания</string>
+    <string name="download_file">Скачивание файла</string>
+    <string name="preparation">Подгатовка…</string>
+    <string name="error_no_notification_perm">Для загрузки файлов необходимо разрешить уведомления</string>
+    <string name="file_preview_path">Путь:</string>
+    <string name="file_preview_size">Размер:</string>
+    <string name="file_preview_date">Дата создания:</string>
+
+    <!-- Admin panel -->
+    <string name="drive">Диск</string>
+    <string name="id_name">id:Имя</string>
+    <string name="rules">Права R/C/A</string>
+    <string name="apply">Применить</string>
+    <string name="delete_account_title">Удаление аккаунта</string>
+    <string name="delete_account">Хотите удалить аккаунт %s?</string>
+
+    <!-- Other -->
+    <string name="error">Ошибка %s</string>
+    <string name="open">Открыть</string>
+    <string name="delete">Удалить</string>
+    <string name="create">Создать</string>
+    <string name="cancel">Отмена</string>
+    <string name="download">Скачать</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+
+</resources>

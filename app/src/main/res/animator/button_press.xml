@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Нажатое состояние: сжимаемся до 96% -->
+    <item android:state_pressed="true">
+        <set>
+            <objectAnimator
+                android:propertyName="scaleX"
+                android:duration="150"
+                android:valueFrom="1.0"
+                android:valueTo="0.96"
+                android:interpolator="@android:interpolator/fast_out_slow_in" />
+            <objectAnimator
+                android:propertyName="scaleY"
+                android:duration="150"
+                android:valueFrom="1.0"
+                android:valueTo="0.96"
+                android:interpolator="@android:interpolator/fast_out_slow_in" />
+        </set>
+    </item>
+
+    <!-- Обычное состояние: возвращаем масштаб к 1.0 -->
+    <item android:state_pressed="false">
+        <set>
+            <objectAnimator
+                android:propertyName="scaleX"
+                android:duration="200"
+                android:valueFrom="0.96"
+                android:valueTo="1.0"
+                android:interpolator="@android:interpolator/fast_out_slow_in" />
+            <objectAnimator
+                android:propertyName="scaleY"
+                android:duration="200"
+                android:valueFrom="0.96"
+                android:valueTo="1.0"
+                android:interpolator="@android:interpolator/fast_out_slow_in" />
+        </set>
+    </item>
+</selector>
