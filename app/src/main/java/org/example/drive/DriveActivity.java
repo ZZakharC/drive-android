@@ -149,7 +149,7 @@ public class DriveActivity extends AppCompatActivity {
             if (id == R.id.open_folder) {
                 findViewById(R.id.up_dir).setVisibility(VISIBLE);
                 ((TextView)findViewById(R.id.path)).setText(url);
-                path = url;
+                path = url + "/";
                 renderFiles();
                 return true;
             } else if (id == R.id.delete_folder) {
@@ -565,9 +565,7 @@ public class DriveActivity extends AppCompatActivity {
                         }
 
                         @Override
-                        public void onError(String e) {
-                            Utils.alertError(DriveActivity.this, Server.TAG, e);
-                        }
+                        public void onError(String e) { Utils.alertError(DriveActivity.this, Server.TAG, e); }
                     });
                 });
 
