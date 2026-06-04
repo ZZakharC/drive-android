@@ -25,20 +25,36 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <LinearLayout
             android:id="@+id/error"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
-            android:textColor="@color/red"
+            android:orientation="vertical"
             android:gravity="center"
-            android:textAlignment="center"
-            tools:layout_editor_absoluteX="195dp"
-            tools:layout_editor_absoluteY="319dp"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/error_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/error_network"
+                android:textAlignment="center"
+                android:textColor="@color/red"
+                android:padding="5dp"
+                android:textSize="30sp"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/change_address"
+                style="@style/ButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/change_address"/>
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

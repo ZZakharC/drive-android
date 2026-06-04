@@ -56,8 +56,11 @@
     <string name="delete_account">Хотите удалить аккаунт %s?</string>
 
     <!-- Other -->
+    <string name="change_address_title">Изменения адреса</string>
+    <string name="change_address">Изменить адрес</string>
     <string name="error">Ошибка %s</string>
     <string name="open">Открыть</string>
+    <string name="change">Изменить</string>
     <string name="delete">Удалить</string>
     <string name="create">Создать</string>
     <string name="cancel">Отмена</string>
