@@ -197,8 +197,8 @@ public class Server {
                 connection = (HttpURLConnection) url.openConnection();
 
                 connection.setRequestMethod("GET");
-                connection.setConnectTimeout(15000);
-                connection.setReadTimeout(15000);
+                connection.setConnectTimeout(Config.TIMEOUT);
+                connection.setReadTimeout(Config.TIMEOUT);
                 connection.setRequestProperty("Cookie", "token=" + Auth.getSessionToken());
 
                 connection.connect();
@@ -318,8 +318,8 @@ public class Server {
                 connection.setRequestMethod(method);
                 connection.setRequestProperty("Content-Type", "application/json");
                 connection.setRequestProperty("Accept", "application/json");
-                connection.setConnectTimeout(15000);
-                connection.setReadTimeout(15000);
+                connection.setConnectTimeout(Config.TIMEOUT);
+                connection.setReadTimeout(Config.TIMEOUT);
                 connection.setDoInput(true);
 
                 // Отправляем cookie и CSRF

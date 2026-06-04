@@ -10,6 +10,7 @@ public class Config {
     public static String SERVER_URL = "https://192.168.0.159:3000/"; // Адрес сервера по умолчанию
     public static final int MIN_LOGIN_LENGTH = 4; // Мин. длина логина
     public static final int MIN_PASSWORD_LENGTH = 6; // Мин. длина пароля
+    public static final int TIMEOUT = 15000;
     private static final String PREFS = "server_config";
     private static final String KEY_BASE_URL = "base_url";
 
