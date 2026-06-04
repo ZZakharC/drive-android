@@ -551,6 +551,7 @@ public class DriveActivity extends AppCompatActivity {
                 // Настройки диалога
                 AlertDialog.Builder builder = new AlertDialog.Builder(DriveActivity.this);
                 builder.setTitle(getString(R.string.create_folder_title));
+                builder.setCancelable(false);
                 builder.setView(input);  // добавляем EditText в диалог
 
                 builder.setPositiveButton(getString(R.string.create), (dialog, which) -> {
