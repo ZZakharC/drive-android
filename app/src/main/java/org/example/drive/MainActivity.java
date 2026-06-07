@@ -84,8 +84,8 @@ public class MainActivity extends AppCompatActivity {
                     AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                     builder.setTitle(getString(R.string.change_address_title));
                     builder.setCancelable(false);
-                    builder.setView(input);  // добавляем EditText в диалог
-                    input.setText(Config.SERVER_URL);
+                    builder.setView(input); // добавляем EditText в диалог
+                    input.setText(Config.SERVER_URL.equals(Config.SERVER_URL_DEFAULT) ? "" : Config.SERVER_URL);
 
                     builder.setPositiveButton(getString(R.string.change), (dialog, which) -> {
                         String userInput = input.getText().toString().trim();
