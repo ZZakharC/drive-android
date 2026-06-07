@@ -1,5 +1,8 @@
 package org.example.drive;
 
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
+
 import android.annotation.SuppressLint;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -7,12 +10,16 @@ import android.app.PendingIntent;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
@@ -157,6 +164,37 @@ public class Server {
             outputStream.close();
             conn.disconnect();
         }
+    }
+
+    public static void loadImage(ImageView imageView, ProgressBar load, String urlPath) {
+        new Thread(() -> {
+            try {
+                URL url = new URL(Config.SERVER_URL + "download" + urlPath);
+                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+
+                connection.setRequestMethod("GET");
+                connection.setConnectTimeout(Config.TIMEOUT);
+                connection.setReadTimeout(Config.TIMEOUT);
+
+                String sessionToken = Auth.getSessionToken();
+                if (sessionToken != null)
+                    connection.setRequestProperty("Cookie", "token=" + sessionToken);
+
+                connection.connect();
+
+                Bitmap bitmap = BitmapFactory.decodeStream(connection.getInputStream());
+
+                imageView.post(() -> {
+                    imageView.setImageBitmap(bitmap);
+                    load.setVisibility(GONE);
+                    imageView.setVisibility(VISIBLE);
+                });
+
+                connection.disconnect();
+            } catch (Exception e) {
+                Log.e(TAG, "Image load failed: " + urlPath, e);
+            }
+        }).start();
     }
 
     public static void downloadFile(Context context, String urlStr) {

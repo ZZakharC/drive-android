@@ -13,6 +13,8 @@ public class Config {
     public static final int TIMEOUT = 15000;
     private static final String PREFS = "server_config";
     private static final String KEY_BASE_URL = "base_url";
+    public static final String[] IMAGES_RENDER = { "png", "jpeg", "jpg", "ico", "svg" };
+    public static final int MAX_IMAGE_RENDER_SIZE = 20971520; // 20 MB
 
     public static void init(Context context) {
         SERVER_URL = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)

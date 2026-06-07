@@ -1,5 +1,6 @@
 package org.example.drive;
 
+import static android.view.View.GONE;
 import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 
@@ -15,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -34,6 +36,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.Objects;
 
@@ -106,7 +109,7 @@ public class DriveActivity extends AppCompatActivity {
                     holder.name.setText(name);
                     holder.size.setText(sizeString(size));
 
-                    holder.itemView.setOnClickListener(v -> activity.clickFile(v, file, url, icon));
+                    holder.itemView.setOnClickListener(v -> activity.clickFile(v, file, url, ext, icon));
                 }
             } catch (Exception ignored) {}
         }
@@ -164,7 +167,7 @@ public class DriveActivity extends AppCompatActivity {
     }
 
     // Клик по файлу
-    protected void clickFile(View v, JSONObject file, String url, int iconRes) {
+    protected void clickFile(View v, JSONObject file, String url, String ext, int iconRes) {
         // Создание меню
         PopupMenu fileMenu = new PopupMenu(DriveActivity.this, v);
 
@@ -176,7 +179,7 @@ public class DriveActivity extends AppCompatActivity {
             int id = item.getItemId();
 
             if (id == R.id.open_file) {
-                renderPreviewFile(file, url, iconRes);
+                renderPreviewFile(file, url, ext, iconRes);
                 return true;
             } else if (id == R.id.download_file) {
                 downloadDriveFile(url);
@@ -235,7 +238,7 @@ public class DriveActivity extends AppCompatActivity {
     }
 
     @SuppressLint("SetTextI18n")
-    protected void renderPreviewFile(JSONObject file, String url, int iconRes) {
+    protected void renderPreviewFile(JSONObject file, String url, String ext, int iconRes) {
         try {
             View preview = findViewById(R.id.preview_overlay);
 
@@ -249,7 +252,19 @@ public class DriveActivity extends AppCompatActivity {
             String fileName = file.getString("name");
 
             name.setText(fileName);
-            icon.setImageResource(iconRes);
+
+            ProgressBar load = findViewById(R.id.load_icon);
+
+            if (Arrays.asList(Config.IMAGES_RENDER).contains(ext) && file.getInt("size") < Config.MAX_IMAGE_RENDER_SIZE) {
+                load.setVisibility(VISIBLE);
+                icon.setVisibility(GONE);
+                Server.loadImage(icon, load, url);
+            } else {
+                load.setVisibility(GONE);
+                icon.setVisibility(VISIBLE);
+                icon.setImageResource(iconRes);
+            }
+
             path.setText(file.optString("url", "/"));
             size.setText(FilesAdapter.sizeString(file.optInt("size", 0)));
             date.setText(file.optString("date", "-"));
@@ -257,15 +272,15 @@ public class DriveActivity extends AppCompatActivity {
 
             download.setOnClickListener(v -> {
                 downloadDriveFile(url);
-                preview.setVisibility(View.GONE);
+                preview.setVisibility(GONE);
             });
 
             delete.setOnClickListener(v -> {
                 deleteDriveFile(url);
-                preview.setVisibility(View.GONE);
+                preview.setVisibility(GONE);
             });
 
-            preview.setOnClickListener(v -> preview.setVisibility(View.GONE));
+            preview.setOnClickListener(v -> preview.setVisibility(GONE));
         } catch (Exception e) {
             Utils.alertError(this, TAG, e.toString());
         }
