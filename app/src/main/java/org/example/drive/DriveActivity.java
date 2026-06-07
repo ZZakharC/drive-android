@@ -49,6 +49,7 @@ public class DriveActivity extends AppCompatActivity {
     public static final String TAG = "DriveActivity";
     private SwipeRefreshLayout swipeRefreshLayout;
     private ActivityResultLauncher<String[]> filePickerLauncher;
+    private boolean imageZoom = false;
 
     private static class FilesAdapter extends RecyclerView.Adapter<DriveActivity.FilesAdapter.ViewHolder> {
         private final ArrayList<JSONObject> dir;
@@ -259,6 +260,25 @@ public class DriveActivity extends AppCompatActivity {
                 load.setVisibility(VISIBLE);
                 icon.setVisibility(GONE);
                 Server.loadImage(icon, load, url);
+
+                imageZoom = false;
+                icon.setOnClickListener(v -> {
+                    if (imageZoom) {
+                        icon.animate()
+                            .scaleX(1f)
+                            .scaleY(1f)
+                            .setDuration(200)
+                            .start();
+                    } else {
+                        icon.animate()
+                            .scaleX(2.5f)
+                            .scaleY(2.5f)
+                            .setDuration(200)
+                            .start();
+                    }
+
+                    imageZoom = !imageZoom;
+                });
             } else {
                 load.setVisibility(GONE);
                 icon.setVisibility(VISIBLE);

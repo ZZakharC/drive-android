@@ -203,6 +203,7 @@
                 android:layout_width="180dp"
                 android:visibility="gone"
                 android:layout_height="180dp"
+                android:translationZ="500dp"
                 android:layout_marginTop="16dp" />
 
             <ProgressBar
