@@ -244,6 +244,7 @@
                         android:gravity="center"
                         android:background="@drawable/text_bg"
                         android:textColor="@color/act"
+                        android:fontFamily="monospace"
                         android:padding="3dp"
                         android:textSize="18dp"/>
                 </LinearLayout>
@@ -269,6 +270,7 @@
                         android:id="@+id/preview_size"
                         android:background="@drawable/text_bg"
                         android:textColor="@color/act"
+                        android:fontFamily="monospace"
                         android:padding="3dp"
                         android:textSize="18dp"/>
                 </LinearLayout>
@@ -294,6 +296,7 @@
                         android:id="@+id/preview_date"
                         android:background="@drawable/text_bg"
                         android:textColor="@color/act"
+                        android:fontFamily="monospace"
                         android:padding="3dp"
                         android:textSize="18dp"/>
                 </LinearLayout>
