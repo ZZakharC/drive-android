@@ -300,7 +300,13 @@ public class DriveActivity extends AppCompatActivity {
                 preview.setVisibility(GONE);
             });
 
-            preview.setOnClickListener(v -> preview.setVisibility(GONE));
+            preview.setOnClickListener(v -> {
+                preview.setVisibility(GONE);
+                icon.setScaleX(1f);
+                icon.setScaleY(1f);
+                imageZoom = false;
+                icon.setOnClickListener(_v -> {});
+            });
         } catch (Exception e) {
             Utils.alertError(this, TAG, e.toString());
         }
